@@ -1,0 +1,28 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "secure-privacy-ai"
+client_id = "eb1990f7be2be2f9e2e1c95bcd8e12a3"
+application_url = "https://excerpt-her-reward-policy.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://excerpt-her-reward-policy.trycloudflare.com/auth/callback",
+  "https://excerpt-her-reward-policy.trycloudflare.com/auth/shopify/callback",
+  "https://excerpt-her-reward-policy.trycloudflare.com/api/auth/callback",
+  "https://excerpt-her-reward-policy.trycloudflare.com/.shopify/graphiql/auth/callback"
+]
+
+[webhooks]
+api_version = "2023-10"
+
+[pos]
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "quickstart-1647725f.myshopify.com"
