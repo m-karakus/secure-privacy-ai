@@ -2,6 +2,32 @@ import { Card, Page, Layout, TextContainer, Text } from "@shopify/polaris";
 import { TitleBar } from "@shopify/app-bridge-react";
 import { useTranslation } from "react-i18next";
 
+import { gql, useMutation } from "@apollo/client";
+function ScriptPage(){
+  const CREATE_SCRIPTING_QUERY = gql`mutation {
+    scriptTagCreate(input: {
+        cache: false,
+        displayScope: ALL,
+        src: "https://frontend-test.secureprivacy.ai/script/64f8594676149b136b618ed1.js"
+    }) {
+        scriptTag {
+            id
+            src
+            displayScope
+        }
+
+    }
+}`
+
+  const [createScriptTagMutation, { data }] = useMutation(CREATE_SCRIPTING_QUERY);
+  createScriptTagMutation();
+  console.log("Primary action");
+  console.log(CREATE_SCRIPTING_QUERY);
+  return
+}
+
+
+
 export default function PageName() {
   const { t } = useTranslation();
   return (
@@ -10,7 +36,7 @@ export default function PageName() {
         title={t("PageName.title")}
         primaryAction={{
           content: t("PageName.primaryAction"),
-          onAction: () => console.log("Primary action"),
+          onAction: () => ScriptPage(),
         }}
         secondaryActions={[
           {
